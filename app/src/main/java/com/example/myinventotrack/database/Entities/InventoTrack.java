@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 import com.example.myinventotrack.database.InventoTrackDatabase;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity(tableName = InventoTrackDatabase.INVENTO_TRACK_TABLE)
@@ -16,30 +16,28 @@ public class InventoTrack {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String username;
-    private LocalDate date;
-    private LocalTime time;
+    private LocalDateTime dateTime;
 
-    public InventoTrack(String username) {
+    public InventoTrack(String username, LocalDateTime dateTime) {
         this.username = username;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            date = LocalDate.now();
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            time = LocalTime.now();
-        }
+        this.dateTime = dateTime;
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            dateTime = LocalDateTime.now();
+//        }
     }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InventoTrack that = (InventoTrack) o;
-        return id == that.id && Objects.equals(username, that.username) && Objects.equals(date, that.date) && Objects.equals(time, that.time);
+        return id == that.id && Objects.equals(username, that.username) && Objects.equals(dateTime, that.dateTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, date, time);
+        return Objects.hash(id, username, dateTime);
     }
 
     public int getId() {
@@ -58,20 +56,13 @@ public class InventoTrack {
         this.username = username;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDateTime getDate() {
+        return dateTime;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
 }
 

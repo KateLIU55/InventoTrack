@@ -1,4 +1,4 @@
 package com.example.myinventotrack.database;
 
-public class Roomdatabase {
+public interface ProductsDao {
 }

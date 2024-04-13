@@ -7,13 +7,16 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.myinventotrack.MainActivity;
+import com.example.myinventotrack.database.typeConverters.LocalDateTypeConverter;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@TypeConverters(LocalDateTypeConverter.class)
 @Database(entities = InventoTrackDatabase.class, version = 1, exportSchema = false)
 public abstract class InventoTrackDatabase extends RoomDatabase {
     public static final String DATABASE_NAME = "InventoTrack_database";
@@ -50,7 +53,7 @@ public abstract class InventoTrackDatabase extends RoomDatabase {
             //TODO: add databaseWriteExecutor.execute(() -> {...}
         }
     };
-
-
     public abstract InventoTrackDAO inventoTrackDAO();
+    public abstract UserDao userDao();
+    public abstract ProductsDao productsDao();
 }
