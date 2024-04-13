@@ -12,7 +12,7 @@
         android:layout_width="390dp"
         android:layout_height="130dp"
         android:padding="8dp"
-        android:text="Invento Track"
+        android:text="@string/Invento_Track"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
