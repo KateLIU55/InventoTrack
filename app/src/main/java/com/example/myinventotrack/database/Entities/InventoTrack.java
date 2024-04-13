@@ -1,14 +1,11 @@
-package com.example.myinventotrack.Database.Entities;
+package com.example.myinventotrack.database.Entities;
 
 import android.os.Build;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import androidx.room.RoomDatabase;
-import androidx.room.Room;
-import androidx.room.Database;
 
-import com.example.myinventotrack.Database.InventoTrackDatabase;
+import com.example.myinventotrack.database.InventoTrackDatabase;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

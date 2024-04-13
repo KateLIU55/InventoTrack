@@ -1,9 +1,9 @@
-package com.example.myinventotrack.Database;
+package com.example.myinventotrack.database;
 
 import android.app.Application;
 import android.util.Log;
 
-import com.example.myinventotrack.Database.Entities.InventoTrack;
+import com.example.myinventotrack.database.Entities.InventoTrack;
 import com.example.myinventotrack.MainActivity;
 
 import java.util.ArrayList;

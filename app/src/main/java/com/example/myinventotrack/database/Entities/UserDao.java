@@ -1,4 +1,4 @@
-package com.example.myinventotrack.Database.Entities;
+package com.example.myinventotrack.database.Entities;
 
 import androidx.room.Insert;
 import androidx.room.Query;

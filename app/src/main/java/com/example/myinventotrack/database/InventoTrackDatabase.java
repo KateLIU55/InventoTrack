@@ -1,4 +1,4 @@
-package com.example.myinventotrack.Database;
+package com.example.myinventotrack.database;
 
 import android.content.Context;
 import android.util.Log;
