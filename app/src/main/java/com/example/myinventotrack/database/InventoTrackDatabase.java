@@ -35,27 +35,42 @@ public abstract class InventoTrackDatabase extends RoomDatabase {
         if(INSTANCE == null) {
             synchronized (InventoTrackDatabase.class) {
                 if(INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(
-                            context.getApplicationContext(),
-                            InventoTrackDatabase.class,
-                                    DATABASE_NAME
-                            )
-                            .fallbackToDestructiveMigration()
-                            .addCallback(addDefaultValues)
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                                    InventoTrackDatabase.class, "inventoTrack_database")
+                            .addCallback(new RoomDatabase.Callback() {
+                                @Override
+                                public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                                    super.onCreate(db);
+                                    Executors.newSingleThreadExecutor().execute(() -> {
+                                        User user1 = new User("testuser1", "testuser1", false);
+                                        User user2 = new User("admin2", "admin2", true);
+                                        getDatabase(context).userDao().insert(user1);
+                                        getDatabase(context).userDao().insert(user2);
+                                    });
+                                }
+                            })
                             .build();
+//                    INSTANCE = Room.databaseBuilder(
+//                            context.getApplicationContext(),
+//                            InventoTrackDatabase.class,
+//                                    DATABASE_NAME
+//                            )
+//                            .fallbackToDestructiveMigration()
+//                            .addCallback(addDefaultValues)
+//                            .build();
                 }
             }
         }
         return INSTANCE;
     }
-    private static final RoomDatabase.Callback addDefaultValues = new RoomDatabase.Callback() {
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
-            Log.i(MainActivity.TAG, "DATABASE CREATED!");
-            //TODO: add databaseWriteExecutor.execute(() -> {...}
-        }
-    };
+//    private static final RoomDatabase.Callback addDefaultValues = new RoomDatabase.Callback() {
+//        @Override
+//        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+//            super.onCreate(db);
+//            Log.i(MainActivity.TAG, "DATABASE CREATED!");
+//            //TODO: add databaseWriteExecutor.execute(() -> {...}
+//        }
+//    };
     public abstract InventoTrackDAO inventoTrackDAO();
     public abstract UserDao userDao();
     public abstract ProductDao productDao();

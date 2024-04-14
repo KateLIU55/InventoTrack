@@ -2,144 +2,37 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="16dp">
 
     <TextView
-        android:id="@+id/logDisplayTextView"
-        android:layout_width="390dp"
-        android:layout_height="130dp"
-        android:padding="8dp"
-        android:text="@string/Invento_Track"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/textViewWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome, User!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_goneMarginTop="16dip" />
-
-    <TextView
-        android:id="@+id/userNameLabelTextView"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/UserID"
-        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logDisplayTextView" />
-
-    <EditText
-        android:id="@+id/userNameInputEditText"
-        android:layout_width="252dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:inputType="textAutoComplete"
-        android:padding="8dp"
-        android:importantForAutofill="no"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/userNameLabelTextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/userNameLabelTextView"
-        android:hint="@string/Enter_a_username"
-        />
-
-    <TextView
-        android:id="@+id/passwordLabelTextView"
-        android:layout_width="128dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dip"
-        android:layout_marginTop="8dp"
-        android:text="@string/Passowrd"
-        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userNameLabelTextView" />
-
-    <EditText
-        android:id="@+id/passwordInputEditText"
-        android:layout_width="243dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:hint="@string/Enter_a_password"
-        android:inputType="textPassword"
-        android:padding="8dp"
-        android:importantForAutofill="no"
-        android:autofillHints=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/passwordLabelTextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/passwordLabelTextView" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-        android:layout_width="190dp"
-        android:layout_height="105dp"
+        android:id="@+id/buttonAdminArea"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Admin Area"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/textViewWelcome"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordLabelTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:text="@string/login"
-        android:textSize="36sp"
-        android:id="@+id/logButton"
-        />
-
-    <TextView
-        android:id="@+id/newAccountLabelTextView"
-        android:layout_width="128dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dip"
-        android:layout_marginTop="28dp"
-        android:text="@string/create_a_new_account"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logButton" />
-
-
-    <EditText
-        android:id="@+id/newAccountInputEditText"
-        android:layout_width="243dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="8dp"
-        android:hint="@string/Enter_username"
-        android:inputType="textAutoComplete"
-        android:padding="8dp"
-        android:importantForAutofill="no"
-        app:layout_constraintBaseline_toBaselineOf="@+id/newAccountLabelTextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/newAccountLabelTextView" />
-
-    <TextView
-        android:id="@+id/setPasswordLabelTextView"
-        android:layout_width="128dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dip"
-        android:layout_marginTop="8dp"
-        android:text="@string/Passowrd"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newAccountLabelTextView" />
-
-    <EditText
-        android:id="@+id/setPasswordInputEditText"
-        android:layout_width="243dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:hint="@string/Enter_a_password"
-        android:inputType="textPassword"
-        android:padding="8dp"
-        android:importantForAutofill="no"
-        app:layout_constraintBaseline_toBaselineOf="@+id/setPasswordLabelTextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/setPasswordLabelTextView" />
-
-    <Button
-        android:layout_width="190dp"
-        android:layout_height="105dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setPasswordLabelTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:text="@string/signUp"
-        android:textSize="36sp"
-        android:id="@+id/signUpButton"
-        />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

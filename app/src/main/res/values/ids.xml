@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="editTextNewPassword" type="id">Enter password</item>
+    <item name="buttonSettings" type="id">Settings</item>
+</resources>
