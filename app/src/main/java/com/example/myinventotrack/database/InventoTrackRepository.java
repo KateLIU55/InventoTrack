@@ -18,14 +18,14 @@ public class InventoTrackRepository {
     public InventoTrackRepository(Application application) {
         InventoTrackDatabase db = InventoTrackDatabase.getDatabase(application);
         this.inventoTrackDAO = db.inventoTrackDAO();
-        this.allLogs = this.inventoTrackDAO.getAllRecords();
+        this.allLogs = (ArrayList<InventoTrack>) this.inventoTrackDAO.getAllRecords();
     }
     public ArrayList<InventoTrack> getAllLogs() {
         Future<ArrayList<InventoTrack>> future = InventoTrackDatabase.databaseWriteExecutor.submit(
                 new Callable<ArrayList<InventoTrack>>() {
                     @Override
                     public ArrayList<InventoTrack> call() throws Exception {
-                        return inventoTrackDAO.getAllRecords();
+                        return (ArrayList<InventoTrack>) inventoTrackDAO.getAllRecords();
                     }
                 }
         );

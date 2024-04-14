@@ -18,6 +18,10 @@ public class InventoTrack {
     private String username;
     private LocalDateTime dateTime;
 
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
     public InventoTrack(String username, LocalDateTime dateTime) {
         this.username = username;
         this.dateTime = dateTime;
