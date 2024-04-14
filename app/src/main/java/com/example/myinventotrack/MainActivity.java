@@ -8,6 +8,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myinventotrack.databinding.ActivityMainBinding;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     //private Log log;
@@ -40,16 +43,28 @@ public class MainActivity extends AppCompatActivity {
             
             Log.d("LoginAttempt", "Username: " + username + ", Password: " + password);
             
-            validateLogin(username, password);
-            
+           if(validateLogin(username, password)) {
+               displayUserInfo(username);
+           } else {
+               Toast.makeText(this, "Invalid username or password", Toast.LENGTH_LONG).show();
+           }
     } catch (Exception e) {
-            Log.e("LoginError", "Error during login", e);
+            Log.e(TAG,"LoginError: Error during login", e);
             Toast.makeText(this, "Login failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
-    private void validateLogin(String username, String password) {
+    private boolean validateLogin(String username, String password) {
+        return username.equals("validUser") && password.equals("validPassword");
     }
+
+   private void displayUserInfo(String username) {
+       LocalDateTime now = LocalDateTime.now();
+       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+       String formattedDateTime = now.format(formatter);
+
+       binding.logDisplayTextView.setText("Logged in as: " + username + "\nAt: " + formattedDateTime);
+   }
 
     private void performSignup() {
         String newUsername = binding.newAccountInputEditText.getText().toString().trim();
@@ -61,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handleSignUp(String newUsername, String newPassword) {
+
     }
 
 
