@@ -13,9 +13,8 @@ import java.util.List;
 
 @Dao
 public interface UserDao {
+    @Insert
     void insertUser(User user);
-
-    User getUser(String username, String password);
 
     @Query("SELECT * FROM users WHERE username = :username")
     User getUsername(String username);
