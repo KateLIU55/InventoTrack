@@ -1,19 +1,19 @@
 package com.example.myinventotrack;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.example.myinventotrack.databinding.ActivityMainBinding;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity<SignUpCallback> extends AppCompatActivity {
     private ActivityMainBinding binding;
-    //private Log log;
+    private UserViewModel userViewModel;
     public static final String TAG = "DAC_INVENTOTRACK";
 
     @Override
@@ -21,63 +21,41 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        
-        binding.logButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                performLogin();
-            }
-        });
-        binding.signUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                performSignup();
-            }
-        });
-    }
 
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+
+        userViewModel.userMessage.observe(this, message -> {
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+            hideKeyboard();
+        });
+
+        binding.logButton.setOnClickListener(v -> performLogin());
+        binding.signUpButton.setOnClickListener(v -> performSignup());
+    }
     private void performLogin() {
-        try{
-            String username = binding.userNameInputEditText.getText().toString().trim();
-            String password = binding.passwordInputEditText.getText().toString().trim();
-            
-            Log.d("LoginAttempt", "Username: " + username + ", Password: " + password);
-            
-           if(validateLogin(username, password)) {
-               displayUserInfo(username);
-           } else {
-               Toast.makeText(this, "Invalid username or password", Toast.LENGTH_LONG).show();
-           }
-    } catch (Exception e) {
-            Log.e(TAG,"LoginError: Error during login", e);
-            Toast.makeText(this, "Login failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
-        }
+        String username = binding.userNameInputEditText.getText().toString().trim();
+        String password = binding.passwordInputEditText.getText().toString().trim();
+        userViewModel.loginUser(username, password);
+        hideKeyboard();
     }
-
-    private boolean validateLogin(String username, String password) {
-        return username.equals("validUser") && password.equals("validPassword");
-    }
-
-   private void displayUserInfo(String username) {
-       LocalDateTime now = LocalDateTime.now();
-       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-       String formattedDateTime = now.format(formatter);
-
-       binding.logDisplayTextView.setText("Logged in as: " + username + "\nAt: " + formattedDateTime);
-   }
+//   private void hideKeyboard(View view) {
+//       InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//       if(inputMethodManager != null) {
+//           inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(),0);
+//       }
+//   }
 
     private void performSignup() {
         String newUsername = binding.newAccountInputEditText.getText().toString().trim();
         String newPassword = binding.setPasswordInputEditText.getText().toString().trim();
-        
-        Log.d("SignUpAttemp", "New Username: " + newUsername + ", New Password: " + newPassword);
-        
-        handleSignUp(newUsername, newPassword);
+        userViewModel.signUpNewUser(newUsername, newPassword);
+        hideKeyboard();
     }
-
-    private void handleSignUp(String newUsername, String newPassword) {
-
+    private void hideKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
-
-
 }

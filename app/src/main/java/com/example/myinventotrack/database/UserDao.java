@@ -16,6 +16,12 @@ public interface UserDao {
     @Insert
     void insertUser(User user);
 
+    @Query("SELECT * FROM users WHERE username = :username LIMIT 1")
+    User findUserByUsername(String username);
+
+    @Query("SELECT EXISTS(SELECT 1 FROM users WHERE username = :username)")
+    boolean usernameExists(String username);
+
     @Query("SELECT * FROM users WHERE username = :username")
     User getUsername(String username);
 

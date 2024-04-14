@@ -31,7 +31,7 @@ public abstract class InventoTrackDatabase extends RoomDatabase {
 
     static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static InventoTrackDatabase getDatabase(final Context context) {
+    public static InventoTrackDatabase getDatabase(final Context context) {
         if(INSTANCE == null) {
             synchronized (InventoTrackDatabase.class) {
                 if(INSTANCE == null) {
