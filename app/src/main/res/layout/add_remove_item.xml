@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@id/overAmount"
+        android:layout_width="110dp"
+        android:layout_height="35dp"
+        android:text="@string/over_amount"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="189dp" />
+
+    <TextView
+        android:id="@+id/underAmount"
+        android:layout_width="110dp"
+        android:layout_height="35dp"
+        android:text="@string/under_amount"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="189dp" />
+
+    <TextView
+        android:id="@+id/item1"
+        android:layout_width="110dp"
+        android:layout_height="35dp"
+        android:text="@string/item"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="146dp" />
+
+    <TextView
+        android:id="@+id/quantity1"
+        android:layout_width="110dp"
+        android:layout_height="35dp"
+        android:text="@string/quantity"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="146dp" />
+
+    <TextView
+        android:id="@+id/price1"
+        android:layout_width="110dp"
+        android:layout_height="35dp"
+        android:text="@string/price"
+        tools:layout_editor_absoluteX="269dp"
+        tools:layout_editor_absoluteY="146dp" />
+
+    <EditText
+        android:id="@+id/titleAddItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/add_remove_item"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="17dp" />
+
+    <Button
+        android:id="@+id/buttonAddItem"
+        android:layout_width="275dp"
+        android:layout_height="85dp"
+        android:text="@string/add_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="262dp" />
+
+    <Button
+        android:id="@+id/buttonRemoveItem"
+        android:layout_width="275dp"
+        android:layout_height="85dp"
+        android:text="@string/remove_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddItem" />
+</androidx.constraintlayout.widget.ConstraintLayout>
