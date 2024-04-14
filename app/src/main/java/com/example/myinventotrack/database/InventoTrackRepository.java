@@ -1,9 +1,9 @@
-package com.example.myinventotrack.Database;
+package com.example.myinventotrack.database;
 
 import android.app.Application;
 import android.util.Log;
 
-import com.example.myinventotrack.Database.Entities.InventoTrack;
+import com.example.myinventotrack.database.Entities.InventoTrack;
 import com.example.myinventotrack.MainActivity;
 
 import java.util.ArrayList;
@@ -18,14 +18,14 @@ public class InventoTrackRepository {
     public InventoTrackRepository(Application application) {
         InventoTrackDatabase db = InventoTrackDatabase.getDatabase(application);
         this.inventoTrackDAO = db.inventoTrackDAO();
-        this.allLogs = this.inventoTrackDAO.getAllRecords();
+        this.allLogs = (ArrayList<InventoTrack>) this.inventoTrackDAO.getAllRecords();
     }
     public ArrayList<InventoTrack> getAllLogs() {
         Future<ArrayList<InventoTrack>> future = InventoTrackDatabase.databaseWriteExecutor.submit(
                 new Callable<ArrayList<InventoTrack>>() {
                     @Override
                     public ArrayList<InventoTrack> call() throws Exception {
-                        return inventoTrackDAO.getAllRecords();
+                        return (ArrayList<InventoTrack>) inventoTrackDAO.getAllRecords();
                     }
                 }
         );

@@ -1,4 +1,4 @@
-package com.example.myinventotrack.Database;
+package com.example.myinventotrack.database;
 
 import android.content.Context;
 import android.util.Log;
@@ -7,14 +7,20 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.myinventotrack.MainActivity;
+import com.example.myinventotrack.database.Entities.InventoTrack;
+import com.example.myinventotrack.database.Entities.Product;
+import com.example.myinventotrack.database.Entities.User;
+import com.example.myinventotrack.database.typeConverters.LocalDateTypeConverter;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = InventoTrackDatabase.class, version = 1, exportSchema = false)
+@TypeConverters(LocalDateTypeConverter.class)
+@Database(entities = {InventoTrack.class, User.class, Product.class}, version = 1, exportSchema = false)
 public abstract class InventoTrackDatabase extends RoomDatabase {
     public static final String DATABASE_NAME = "InventoTrack_database";
     public static final String INVENTO_TRACK_TABLE = "inventoTrackTable";
@@ -50,7 +56,8 @@ public abstract class InventoTrackDatabase extends RoomDatabase {
             //TODO: add databaseWriteExecutor.execute(() -> {...}
         }
     };
-
-
     public abstract InventoTrackDAO inventoTrackDAO();
+    public abstract UserDao userDao();
+    public abstract ProductDao productDao();
+
 }
