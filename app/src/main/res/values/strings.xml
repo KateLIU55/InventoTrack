@@ -31,4 +31,7 @@
     <string name="payment">Payment</string>
     <string name="returns_user">Returns</string>
     <string name="return_payment">Refund</string>
+    <string name="totalPrice" />
+    <string name="settings1">Settings</string>
+    <string name="save">Save</string>
 </resources>
