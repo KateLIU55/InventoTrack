@@ -1,19 +1,10 @@
 <resources>
     <string name="app_name">MyInventoTrack</string>
-    <string name="UserID">UserID</string>
-    <string name="Enter_a_username">Enter username</string>
-    <string name="Passowrd">Password</string>
-    <string name="Enter_a_password">Enter password</string>
-    <string name="create_a_new_account">NewUser</string>
-    <string name="Enter_username">Enter a username</string>
     <string name="login">Login</string>
-    <string name="signUp">Sign up</string>
-    <string name="Invento_Track">Invento Track</string>
-    <string name="enter_username">Enter username</string>
-    <string name="enter_password">Enter password</string>
-    <string name="register">CreateAccount</string>
-
     <string name="create_account">Create Account</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="register">Register</string>
     <string name="manage_users">Manage Users</string>
     <string name="generate_reports">Generate Reports</string>
     <string name="settings">Settings</string>
