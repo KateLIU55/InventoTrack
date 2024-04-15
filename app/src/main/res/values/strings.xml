@@ -11,4 +11,9 @@
     <string name="logout">Logout</string>
     <string name="welcome_user">Welcome, User!</string>
     <string name="admin_area">Admin Area</string>
+    <string name="daily_sales_report">Daily Sales Report</string>
+    <string name="add_remove_item">Add or Remove Item</string>
+    <string name="returns">Returns</string>
+    <string name="new_sale">New Sale</string>
+    <string name="weekly_sales">Weekly Sales</string>
 </resources>
