@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -25,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
         String username = sharedPreferences.getString("username", "User");
         boolean isAdmin = sharedPreferences.getBoolean("isAdmin", false);
         binding.textViewWelcome.setText("Welcome, " + username + "!");
+        binding.buttonNewSale.setOnClickListener(v -> newSale());
+        binding.buttonTodaysSales.setOnClickListener(v -> todaysSales());
+        binding.buttonReturns.setOnClickListener(v -> returns());
+
         if(isAdmin) {
             binding.buttonAdminArea.setVisibility(View.VISIBLE);
         } else {
@@ -42,5 +47,17 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, AdminAreaActivity.class);
             startActivity(intent);
         });
+    }
+
+    private void returns() {
+        Toast.makeText(this, "Returns", Toast.LENGTH_SHORT).show();
+    }
+
+    private void todaysSales() {
+        Toast.makeText(this, "Today's Sales", Toast.LENGTH_SHORT).show();
+    }
+
+    private void newSale() {
+        Toast.makeText(this, "New Sale", Toast.LENGTH_SHORT).show();
     }
 }

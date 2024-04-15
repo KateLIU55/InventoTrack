@@ -4,12 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import com.example.myinventotrack.databinding.ActivityAdminAreaBinding;
 
 public class AdminAreaActivity extends AppCompatActivity {
@@ -22,10 +17,35 @@ public class AdminAreaActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         binding.buttonManageUsers.setOnClickListener(v -> manageUsers());
-        binding.buttonGenerateReports.setOnClickListener(v -> generateReports());
         binding.buttonSettings.setOnClickListener(v -> openSettings());
         binding.buttonLogout.setOnClickListener(v -> logout());
+        binding.buttonAddRemoveItem.setOnClickListener(v -> addRemoveItem());
+        binding.buttonDailySalesReport.setOnClickListener(v -> dailySalesReport());
+        binding.buttonNewSale.setOnClickListener(v -> newSale());
+        binding.buttonWeeklySales.setOnClickListener(v -> weeklySales());
+        binding.buttonReturns.setOnClickListener(v -> returns());
     }
+
+    private void returns() {
+        Toast.makeText(this, "Return items", Toast.LENGTH_SHORT).show();
+    }
+
+    private void weeklySales() {
+        Toast.makeText(this, "Weekly Sales", Toast.LENGTH_SHORT).show();
+    }
+
+    private void newSale() {
+        Toast.makeText(this, "New Sale", Toast.LENGTH_SHORT).show();
+    }
+
+    private void dailySalesReport() {
+        Toast.makeText(this, "Daily Sales Report", Toast.LENGTH_SHORT).show();
+    }
+
+    private void addRemoveItem() {
+        Toast.makeText(this, "Add or Remove Item", Toast.LENGTH_SHORT).show();
+    }
+
     private void manageUsers() {
         Toast.makeText(this, "Open User Management", Toast.LENGTH_SHORT).show();
     }

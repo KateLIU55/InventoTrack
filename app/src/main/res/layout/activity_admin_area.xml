@@ -7,31 +7,72 @@
     android:padding="16dp">
 
     <Button
-        android:id="@+id/buttonManageUsers"
+        android:id="@+id/buttonDailySalesReport"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Manage Users"
+        android:text="@string/daily_sales_report"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-        android:id="@+id/buttonGenerateReports"
+        android:id="@+id/buttonWeeklySales"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Generate Reports"
-        app:layout_constraintTop_toBottomOf="@id/buttonManageUsers"
+        android:text="@string/weekly_sales"
+        app:layout_constraintTop_toBottomOf="@id/buttonDailySalesReport"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/buttonNewSale"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/new_sale"
+        app:layout_constraintTop_toBottomOf="@id/buttonWeeklySales"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/buttonReturns"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/returns"
+        app:layout_constraintTop_toBottomOf="@id/buttonNewSale"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/buttonAddRemoveItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/add_remove_item"
+        app:layout_constraintTop_toBottomOf="@id/buttonReturns"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/buttonManageUsers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Manage Users"
+        app:layout_constraintTop_toBottomOf="@id/buttonAddRemoveItem"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <Button
         android:id="@+id/buttonSettings"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Settings"
-        app:layout_constraintTop_toBottomOf="@id/buttonGenerateReports"
+        app:layout_constraintTop_toBottomOf="@id/buttonManageUsers"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
