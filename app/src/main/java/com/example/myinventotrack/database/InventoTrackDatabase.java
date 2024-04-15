@@ -50,27 +50,12 @@ public abstract class InventoTrackDatabase extends RoomDatabase {
                                 }
                             })
                             .build();
-//                    INSTANCE = Room.databaseBuilder(
-//                            context.getApplicationContext(),
-//                            InventoTrackDatabase.class,
-//                                    DATABASE_NAME
-//                            )
-//                            .fallbackToDestructiveMigration()
-//                            .addCallback(addDefaultValues)
-//                            .build();
                 }
             }
         }
         return INSTANCE;
     }
-//    private static final RoomDatabase.Callback addDefaultValues = new RoomDatabase.Callback() {
-//        @Override
-//        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-//            super.onCreate(db);
-//            Log.i(MainActivity.TAG, "DATABASE CREATED!");
-//            //TODO: add databaseWriteExecutor.execute(() -> {...}
-//        }
-//    };
+
     public abstract InventoTrackDAO inventoTrackDAO();
     public abstract UserDao userDao();
     public abstract ProductDao productDao();

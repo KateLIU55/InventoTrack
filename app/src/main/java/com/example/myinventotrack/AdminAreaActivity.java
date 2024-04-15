@@ -27,22 +27,18 @@ public class AdminAreaActivity extends AppCompatActivity {
         binding.buttonLogout.setOnClickListener(v -> logout());
     }
     private void manageUsers() {
-        // Intent to open User Management Activity
         Toast.makeText(this, "Open User Management", Toast.LENGTH_SHORT).show();
     }
 
     private void generateReports() {
-        // Intent to open Reports Activity
         Toast.makeText(this, "Generate Reports", Toast.LENGTH_SHORT).show();
     }
 
     private void openSettings() {
-        // Intent to open Settings Activity
         Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
     }
 
     private void logout() {
-        // Clear session and return to login screen
         Intent intent = new Intent(AdminAreaActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();

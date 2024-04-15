@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.myinventotrack.database.Entities.User;
 import com.example.myinventotrack.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
@@ -25,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        setUpObserver();
 
         SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         if (sharedPreferences.getBoolean("isLoggedIn", false)) {
@@ -41,25 +44,38 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void performLogin() {
-        String username = binding.editTextUsername.getText().toString().trim();
-        String password = binding.editTextPassword.getText().toString().trim();
-
+    private void setUpObserver() {
         userViewModel.userMessage.observe(this, message -> {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-            if (message.equals("Login successful")) {
-                SharedPreferences sharedPreferences = null;
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean("isLoggedIn", true);
-                editor.putString("username", username);
-                editor.apply();
+            if (message.contains("Login successful")) {
                 navigateToMainActivity();
             }
         });
+    }
 
+    private void performLogin() {
+        String username = binding.editTextUsername.getText().toString().trim();
+        String password = binding.editTextPassword.getText().toString().trim();
+        userViewModel.getUserByUsername(username).observe(this, user -> {
+            if (user != null && user.getPassword().equals(password)) {
+                saveUserSession(user, username);
+            } else {
+                Toast.makeText(LoginActivity.this, "Invalid credentials", Toast.LENGTH_LONG).show();
+            }
+        });
         userViewModel.loginUser(username, password);
     }
+    private void saveUserSession(User user, String username) {
+        SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isLoggedIn", true);
+        editor.putString("username", username);
+        editor.putBoolean("isAdmin", user.isAdmin());
+        editor.apply();
+    }
+
     private void navigateToMainActivity() {
+        Log.d("LoginActivity", "Navigating to MainActivity");
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();

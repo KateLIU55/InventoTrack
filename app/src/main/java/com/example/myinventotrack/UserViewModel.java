@@ -4,6 +4,7 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.myinventotrack.database.Entities.User;
@@ -17,6 +18,15 @@ public class UserViewModel extends AndroidViewModel {
     public UserViewModel(@NonNull Application application) {
         super(application);
         userDao = InventoTrackDatabase.getDatabase(application).userDao();
+    }
+
+    public LiveData<User> getUserByUsername(String username) {
+        MutableLiveData<User> liveData = new MutableLiveData<>();
+        new Thread(() -> {
+            User user = userDao.findUserByUsername(username);
+            liveData.postValue(user);
+        }).start();
+        return liveData;
     }
 
     public void loginUser(String username, String password) {
