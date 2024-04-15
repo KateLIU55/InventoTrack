@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/titleReturnsUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/returns_user"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/item1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/item"
+        app:layout_constraintTop_toBottomOf="@id/titleReturnsUser"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/quantity1" />
+
+    <TextView
+        android:id="@+id/quantity1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/quantity"
+        app:layout_constraintTop_toBottomOf="@id/titleReturnsUser"
+        app:layout_constraintStart_toEndOf="@id/item1"
+        app:layout_constraintEnd_toStartOf="@id/price1" />
+
+    <TextView
+        android:id="@+id/price1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        app:layout_constraintTop_toBottomOf="@id/titleReturnsUser"
+        app:layout_constraintStart_toEndOf="@id/quantity1"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/totalPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/total"
+        app:layout_constraintTop_toBottomOf="@id/price1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonReturn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/return_payment"
+        app:layout_constraintTop_toBottomOf="@id/totalPrice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

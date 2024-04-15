@@ -17,4 +17,18 @@
     <string name="new_sale">New Sale</string>
     <string name="weekly_sales">Weekly Sales</string>
     <string name="todays_sales">Today\'s Sales</string>
+    <string name="item">Item</string>
+    <string name="quantity">Quantity</string>
+    <string name="price">Price</string>
+    <string name="add_item">Add Item</string>
+    <string name="remove_item">Remove Item</string>
+    <string name="signUp">Sign Up</string>
+    <string name="delete_user">Delete User</string>
+    <string name="Enter_username">Enter Username</string>
+    <string name="Enter_a_password">Enter A Password</string>
+    <string name="new_sale_user">New Sale For Users</string>
+    <string name="total">Total</string>
+    <string name="payment">Payment</string>
+    <string name="returns_user">Returns</string>
+    <string name="return_payment">Refund</string>
 </resources>
