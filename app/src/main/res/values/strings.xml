@@ -16,4 +16,5 @@
     <string name="returns">Returns</string>
     <string name="new_sale">New Sale</string>
     <string name="weekly_sales">Weekly Sales</string>
+    <string name="todays_sales">Today\'s Sales</string>
 </resources>
