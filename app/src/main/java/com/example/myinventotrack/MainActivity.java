@@ -47,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, AdminAreaActivity.class);
             startActivity(intent);
         });
+        binding.buttonNewSale.setOnClickListener(v -> {
+            // Start the NewSaleActivity when the "New Sale" button is clicked
+            startActivity(new Intent(MainActivity.this, NewSales.class));
+        });
+
     }
 
     private void returns() {

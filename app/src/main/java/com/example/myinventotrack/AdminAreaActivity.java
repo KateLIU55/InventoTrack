@@ -2,9 +2,11 @@ package com.example.myinventotrack;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myinventotrack.databinding.ActivityAdminAreaBinding;
 
 public class AdminAreaActivity extends AppCompatActivity {
@@ -27,35 +29,37 @@ public class AdminAreaActivity extends AppCompatActivity {
     }
 
     private void returns() {
-        Toast.makeText(this, "Return items", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(AdminAreaActivity.this, Returns.class);
+        startActivity(intent);
     }
 
     private void weeklySales() {
-        Toast.makeText(this, "Weekly Sales", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent ( AdminAreaActivity.this, WeeklySales.class);
+        startActivity(intent);
     }
 
     private void newSale() {
-        Toast.makeText(this, "New Sale", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent ( AdminAreaActivity.this, NewSales.class);
+        startActivity(intent);
     }
 
     private void dailySalesReport() {
-        Toast.makeText(this, "Daily Sales Report", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent ( AdminAreaActivity.this, DailySales.class);
+        startActivity(intent);
     }
 
     private void addRemoveItem() {
-        Toast.makeText(this, "Add or Remove Item", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent ( AdminAreaActivity.this, AddRemoveItem.class);
+        startActivity(intent);
     }
 
     private void manageUsers() {
-        Toast.makeText(this, "Open User Management", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent ( AdminAreaActivity.this, ManageUsers.class);
+        startActivity(intent);
     }
-
-    private void generateReports() {
-        Toast.makeText(this, "Generate Reports", Toast.LENGTH_SHORT).show();
-    }
-
     private void openSettings() {
-        Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent ( AdminAreaActivity.this, Settings.class);
+        startActivity(intent);
     }
 
     private void logout() {
