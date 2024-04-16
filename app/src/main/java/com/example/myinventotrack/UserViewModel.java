@@ -1,6 +1,8 @@
 package com.example.myinventotrack;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -34,6 +36,12 @@ public class UserViewModel extends AndroidViewModel {
             User user = userDao.findUserByUsername(username);
             if (user != null && user.getPassword().equals(password)) {
                 userMessage.postValue("Login successful: " + username);
+                SharedPreferences sharedPreferences = getApplication().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("isLoggedIn", true);
+                editor.putBoolean("isAdmin", user.isAdmin());
+                editor.putString("username", username);
+                editor.apply();
             } else {
                 userMessage.postValue("Invalid username or password");
             }

@@ -23,12 +23,27 @@ public class MainActivity extends AppCompatActivity {
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
 
         SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+
         String username = sharedPreferences.getString("username", "User");
         boolean isAdmin = sharedPreferences.getBoolean("isAdmin", false);
         binding.textViewWelcome.setText("Welcome, " + username + "!");
         binding.buttonNewSale.setOnClickListener(v -> newSale());
         binding.buttonTodaysSales.setOnClickListener(v -> todaysSales());
         binding.buttonReturns.setOnClickListener(v -> returns());
+
+        if (isLoggedIn) {
+            if (isAdmin) {
+                // Navigate to Admin landing page or simply adjust the UI
+                adjustUIForAdmin();
+            } else {
+                // Navigate to regular user landing page or adjust UI
+                adjustUIForRegularUser();
+            }
+        } else {
+            // Show login screen or navigate to LoginActivity
+            navigateToLoginActivity();
+        }
 
         if(isAdmin) {
             binding.buttonAdminArea.setVisibility(View.VISIBLE);
@@ -54,6 +69,21 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, NewSales.class));
         });
 
+    }
+    private void adjustUIForAdmin() {
+        // Make admin specific UI adjustments
+        binding.buttonAdminArea.setVisibility(View.VISIBLE);
+    }
+
+    private void adjustUIForRegularUser() {
+        // Adjust UI for regular users
+        binding.buttonAdminArea.setVisibility(View.INVISIBLE);
+    }
+
+    private void navigateToLoginActivity() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void returns() {
