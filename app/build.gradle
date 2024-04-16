@@ -50,7 +50,15 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
 
+    testImplementation libs.robolectric
+
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
+
+    testImplementation libs.robolectric
+
+
+    testImplementation 'org.robolectric:robolectric:4.7.3'
+
 
     def room_version = "2.6.1"
 

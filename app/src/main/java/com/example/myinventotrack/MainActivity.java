@@ -65,4 +65,10 @@ public class MainActivity extends AppCompatActivity {
     private void newSale() {
         Toast.makeText(this, "New Sale", Toast.LENGTH_SHORT).show();
     }
+
+//For Junit test
+    public boolean isValidUsername(String username) {
+        return username != null && username.matches("^[a-zA-Z0-9._-]{3,}$");
+    }
+
 }
