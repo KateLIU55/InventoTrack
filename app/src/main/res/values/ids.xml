@@ -2,4 +2,7 @@
 <resources>
     <string name="editTextNewPassword" type="id">Enter password</string>
     <string name="buttonSettings" type="id">Settings</string>
+    <item name="editTextItemName" type="id" />
+    <item name="editTextItemQuantity" type="id" />
+    <item name="editTextItemPrice" type="id" />
 </resources>

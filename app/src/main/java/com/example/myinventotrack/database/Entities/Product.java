@@ -9,10 +9,13 @@ public class Product {
     public int id;
     public String name;
     public double price;
+
     public Product(String name, double price) {
         this.name = name;
         this.price = price;
     }
+
+    // Getters and setters
 
     public int getId() {
         return id;

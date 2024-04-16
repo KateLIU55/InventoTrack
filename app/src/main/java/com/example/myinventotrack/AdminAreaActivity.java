@@ -10,12 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myinventotrack.databinding.ActivityAdminAreaBinding;
 
 public class AdminAreaActivity extends AppCompatActivity {
-    private ActivityAdminAreaBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityAdminAreaBinding.inflate(getLayoutInflater());
+        com.example.myinventotrack.databinding.ActivityAdminAreaBinding binding = ActivityAdminAreaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         binding.buttonManageUsers.setOnClickListener(v -> manageUsers());

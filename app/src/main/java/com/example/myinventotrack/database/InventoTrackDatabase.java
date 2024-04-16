@@ -44,8 +44,8 @@ public abstract class InventoTrackDatabase extends RoomDatabase {
                                     Executors.newSingleThreadExecutor().execute(() -> {
                                         User user1 = new User("testuser1", "testuser1", false);
                                         User user2 = new User("admin2", "admin2", true);
-                                        getDatabase(context).userDao().insert(user1);
-                                        getDatabase(context).userDao().insert(user2);
+                                        INSTANCE.userDao().insert(user1);
+                                        INSTANCE.userDao().insert(user2);
                                     });
                                 }
                             })
@@ -58,6 +58,9 @@ public abstract class InventoTrackDatabase extends RoomDatabase {
 
     public abstract InventoTrackDAO inventoTrackDAO();
     public abstract UserDao userDao();
-    public abstract ProductDao productDao();
+
+    public static ProductDao productDao() {
+        return null;
+    }
 
 }
