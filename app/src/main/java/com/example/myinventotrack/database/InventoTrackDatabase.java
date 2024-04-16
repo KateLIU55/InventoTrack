@@ -19,6 +19,19 @@ import com.example.myinventotrack.database.typeConverters.LocalDateTypeConverter
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Project02: Invento Track Application
+ * @date: Since 4/11/2024
+ * @Authors: Kate Liu & Samuel Caesar
+ * InventoTrackDatabase serves as the primary database setup for the InventoTrack application,
+ * handling the storage and management of entities such as InventoTrack, User, and Product.
+ * It utilizes Room Database to facilitate app-wide data persistence and operations.
+ * This class includes:
+ * - Type converters for handling custom data types.
+ * - A thread pool executor for handling database operations asynchronously.
+ * - Initialization and pre-population of the database with default users during creation.
+ */
+
 @TypeConverters(LocalDateTypeConverter.class)
 @Database(entities = {InventoTrack.class, User.class, Product.class}, version = 1, exportSchema = false)
 public abstract class InventoTrackDatabase extends RoomDatabase {

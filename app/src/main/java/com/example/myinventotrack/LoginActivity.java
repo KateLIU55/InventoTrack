@@ -16,6 +16,14 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.myinventotrack.database.Entities.User;
 import com.example.myinventotrack.databinding.ActivityLoginBinding;
 
+/**
+ * Project02: Invento Track Application
+ * @date: Since 4/11/2024
+ * @Authors: Kate Liu & Samuel Caesar
+ * LoginActivity handles the user authentication process, allowing users to log in or navigate to the sign-up page.
+ * It uses SharedPreferences for session management to persist login states and auto-navigate to the MainActivity if already logged in.
+ */
+
 public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding;
     private UserViewModel userViewModel;
@@ -82,7 +90,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void navigateToSignUpActivity() {
-        // Assuming SignUpActivity exists
         Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
         startActivity(intent);
     }

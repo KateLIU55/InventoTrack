@@ -34,4 +34,5 @@
     <string name="totalPrice" />
     <string name="settings1">Settings</string>
     <string name="save">Save</string>
+    <string name="back">Back to Admin Area</string>
 </resources>
