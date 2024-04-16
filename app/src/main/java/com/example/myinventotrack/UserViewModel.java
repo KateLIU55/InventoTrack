@@ -13,6 +13,16 @@ import com.example.myinventotrack.database.Entities.User;
 import com.example.myinventotrack.database.InventoTrackDatabase;
 import com.example.myinventotrack.database.UserDao;
 
+/**
+ * Project02: Invento Track Application
+ * @date: Since 4/11/2024
+ * @Authors: Kate Liu & Samuel Caesar
+ * UserViewModel manages all user-related data interactions between the app's UI and the database.
+ * It handles operations such as user login, signup, and deletion, encapsulating all business logic
+ * for user management within the app.
+ * LiveData is used to observe and respond to data changes asynchronously.
+ */
+
 public class UserViewModel extends AndroidViewModel {
     private UserDao userDao;
     public MutableLiveData<String> userMessage = new MutableLiveData<>();

@@ -12,7 +12,15 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myinventotrack.databinding.ActivitySignUpBinding;
-
+/**
+ * Project02: Invento Track Application
+ * @date: Since 4/11/2024
+ * @Authors: Kate Liu & Samuel Caesar
+ * SignUpActivity handles the registration process for new users. It provides a user interface
+ * for entering username and password, and a button to submit the registration details.
+ * The activity interacts with UserViewModel to create a new user account.
+ * If the registration is successful, the user is directed back to the login screen.
+ */
 public class SignUpActivity extends AppCompatActivity {
     private ActivitySignUpBinding binding;
     private UserViewModel userViewModel;

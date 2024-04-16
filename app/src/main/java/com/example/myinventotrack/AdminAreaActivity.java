@@ -8,7 +8,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myinventotrack.databinding.ActivityAdminAreaBinding;
-
+/**
+ * Project02: Invento Track Application
+ * @date: Since 4/11/2024
+ * @Authors: Kate Liu & Samuel Caesar
+ * AdminAreaActivity serves as the control panel for administrators, providing access to various administrative functions.
+ * This activity includes buttons for managing users, handling sales data, modifying inventory, and accessing system settings.
+ * Each button launches a different activity corresponding to the specific administrative task.
+ */
 public class AdminAreaActivity extends AppCompatActivity {
     private ActivityAdminAreaBinding binding;
 

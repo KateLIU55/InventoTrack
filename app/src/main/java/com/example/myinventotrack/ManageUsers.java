@@ -12,6 +12,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+/**
+ * Project02: Invento Track Application
+ * @date: Since 4/11/2024
+ * @Authors: Kate Liu & Samuel Caesar
+ * ManageUsers is responsible for administering user accounts within the app.
+ * It provides functionality for adding new users and deleting existing users.
+ * The ability to assign administrator privileges is available through a switch
+ * that is only visible to users logged in with admin privileges.
+ */
+
 public class ManageUsers extends AppCompatActivity {
     private EditText usernameInput;
     private EditText passwordInput;
