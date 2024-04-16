@@ -1,17 +1,18 @@
 package com.example.myinventotrack;
 
 import android.annotation.SuppressLint;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.myinventotrack.database.Entities.Sale;
+import com.example.myinventotrack.database.InventoTrackDatabase;
+import com.example.myinventotrack.database.SaleDao;
 
 public class NewSales extends AppCompatActivity {
 
@@ -19,24 +20,23 @@ public class NewSales extends AppCompatActivity {
     private TextView item1, quantity1, price1, totalPrice;
 
     @Override
-            protected void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
-            EdgeToEdge.enable(this);
-                setContentView(R.layout.activity_new_sales);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_new_sales);
 
-                // Initialize views
-                titleNewUser = findViewById(R.id.titleNewUser);
-                item1 = findViewById(R.id.item1);
-                quantity1 = findViewById(R.id.quantity1);
-                price1 = findViewById(R.id.price1);
-                totalPrice = findViewById(R.id.totalPrice);
-                Button buttonPayment = findViewById(R.id.buttonPayment);
+        // Initialize views
+        titleNewUser = findViewById(R.id.titleNewUser);
+        item1 = findViewById(R.id.item1);
+        quantity1 = findViewById(R.id.quantity1);
+        price1 = findViewById(R.id.price1);
+        totalPrice = findViewById(R.id.totalPrice);
+        Button buttonPayment = findViewById(R.id.buttonPayment);
 
-                // Setup any necessary logic or functionality here
-                // For example, setting text, handling button clicks, etc.
-            }
+        // Setup onClickListener for payment button
+        buttonPayment.setOnClickListener(v -> processPayment());
+    }
 
-    // Function to process payment does not work completely yet
+    // Function to process payment
     @SuppressLint("StringFormatInvalid")
     private void processPayment() {
         // Retrieve input values
@@ -61,17 +61,33 @@ public class NewSales extends AppCompatActivity {
         // Display total price
         totalPrice.setText(getString(R.string.total, total));
 
-        // Additional logic for updating database
+        // Get database instance
+        InventoTrackDatabase database = InventoTrackDatabase.getDatabase(this);
 
-        // toast message showing successful payment
+        // Get SaleDao from the database
+        SaleDao saleDao = InventoTrackDatabase.saleDao();
+
+        // Create a new Sale object with input data
+        Sale sale = new Sale(user, item, quantityInt, priceDouble, total);
+
+        // Insert the Sale object into the database
+        new InsertSaleTask(saleDao).execute(sale);
+
+        // Toast message showing successful payment
         Toast.makeText(this, "Payment processed for " + total, Toast.LENGTH_SHORT).show();
     }
+
+    private static class InsertSaleTask extends AsyncTask<Sale, Void, Void> {
+        private final SaleDao saleDao;
+
+        InsertSaleTask(SaleDao saleDao) {
+            this.saleDao = saleDao;
+        }
+
+        @Override
+        protected Void doInBackground(Sale... sales) {
+            saleDao.insertSale(sales[0]);
+            return null;
+        }
+    }
 }
-
-
-
-
-
-
-
-

@@ -12,7 +12,7 @@ import com.example.myinventotrack.database.InventoTrackDatabase;
 import com.example.myinventotrack.database.UserDao;
 
 public class UserViewModel extends AndroidViewModel {
-    private UserDao userDao;
+    private final UserDao userDao;
     public MutableLiveData<String> userMessage = new MutableLiveData<>();
 
     public UserViewModel(@NonNull Application application) {

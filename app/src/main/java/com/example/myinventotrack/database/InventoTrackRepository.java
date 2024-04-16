@@ -12,8 +12,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 public class InventoTrackRepository {
-    private InventoTrackDAO inventoTrackDAO;
-    private ArrayList<InventoTrack> allLogs;
+    private final InventoTrackDAO inventoTrackDAO;
+    private final ArrayList<InventoTrack> allLogs;
 
     public InventoTrackRepository(Application application) {
         InventoTrackDatabase db = InventoTrackDatabase.getDatabase(application);

@@ -62,5 +62,8 @@ public abstract class InventoTrackDatabase extends RoomDatabase {
     public static ProductDao productDao() {
         return null;
     }
+    public static com.example.myinventotrack.database.SaleDao saleDao() {
+        return null;
+    }
 
 }
