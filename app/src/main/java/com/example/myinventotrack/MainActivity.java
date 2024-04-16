@@ -44,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
             finish();
         });
         binding.buttonAdminArea.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, AdminAreaActivity.class);
+            Intent intent = new Intent(MainActivity.this, ManageUsers.class);
+            intent.putExtra("isAdmin", sharedPreferences.getBoolean("isAdmin", false));
+
             startActivity(intent);
         });
         binding.buttonNewSale.setOnClickListener(v -> {

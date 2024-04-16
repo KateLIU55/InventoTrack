@@ -37,5 +37,7 @@ public interface UserDao {
     @Query("Select * from users")
     List<User> getAllUsers();
 
+    @Query("DELETE FROM Users WHERE username = :username")
+    void deleteUserByUsername(String username);
 }
 
