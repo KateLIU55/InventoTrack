@@ -35,13 +35,14 @@ public class SignUpActivity extends AppCompatActivity {
     private void registerUser() {
         String username = binding.editTextNewUsername.getText().toString().trim();
         String password = binding.editTextNewPassword.getText().toString().trim();
+        boolean isAdmin = false;
 
         if (username.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Username and password cannot be empty", Toast.LENGTH_LONG).show();
             return;
         }
 
-        userViewModel.signUpNewUser(username, password);
+        userViewModel.signUpNewUser(username, password, isAdmin);
         userViewModel.userMessage.observe(this, message -> {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
             if (message.equals("Signup successful, please login.")) {

@@ -39,14 +39,22 @@ public class UserViewModel extends AndroidViewModel {
             }
         }).start();
     }
-    public void signUpNewUser(String username, String password) {
+    public void signUpNewUser(String username, String password, boolean isAdmin) {
         new Thread(() -> {
             if (userDao.usernameExists(username)) {
                 userMessage.postValue("Username already taken.");
             } else {
-                userDao.insertUser(new User(username, password, false));
+                userDao.insertUser(new User(username, password, isAdmin));
                 userMessage.postValue("Signup successful, please login.");
             }
         }).start();
     }
+    public void deleteUser(String username) {
+        new Thread(() -> {
+            userDao.deleteUserByUsername(username);
+            userMessage.postValue("User deleted successfully.");
+        }).start();
+    }
+
+
 }
