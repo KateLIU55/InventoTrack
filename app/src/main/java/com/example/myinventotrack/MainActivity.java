@@ -34,14 +34,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (isLoggedIn) {
             if (isAdmin) {
-                // Navigate to Admin landing page or simply adjust the UI
                 adjustUIForAdmin();
             } else {
-                // Navigate to regular user landing page or adjust UI
                 adjustUIForRegularUser();
             }
         } else {
-            // Show login screen or navigate to LoginActivity
+
             navigateToLoginActivity();
         }
 
@@ -65,18 +63,15 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
         binding.buttonNewSale.setOnClickListener(v -> {
-            // Start the NewSaleActivity when the "New Sale" button is clicked
             startActivity(new Intent(MainActivity.this, NewSales.class));
         });
 
     }
     private void adjustUIForAdmin() {
-        // Make admin specific UI adjustments
         binding.buttonAdminArea.setVisibility(View.VISIBLE);
     }
 
     private void adjustUIForRegularUser() {
-        // Adjust UI for regular users
         binding.buttonAdminArea.setVisibility(View.INVISIBLE);
     }
 

@@ -82,7 +82,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void navigateToSignUpActivity() {
-        // Assuming SignUpActivity exists
         Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
         startActivity(intent);
     }

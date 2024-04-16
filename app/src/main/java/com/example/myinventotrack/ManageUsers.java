@@ -36,35 +36,20 @@ public class ManageUsers extends AppCompatActivity {
         Button logoutButton = findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(v -> logout());
 
-        // Initialize UserViewModel
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
 
 
         boolean isAdmin = getIntent().getBooleanExtra("isAdmin", false);
         isAdminSwitch.setVisibility(isAdmin ? View.VISIBLE : View.GONE);
 
-      //  configureAdminSwitch();
-
         signUpButton.setOnClickListener(v -> addUser());
         deleteUserButton.setOnClickListener(v -> deleteUser());
     }
-
-//    private void configureAdminSwitch() {
-//        SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-//        boolean isAdmin = sharedPreferences.getBoolean("isAdmin", false);
-//
-//        isAdminSwitch.setEnabled(isAdmin && isSuperAdmin());
-//    }
-
-//    private boolean isSuperAdmin() {
-//        return false;
-//    }
 
     private void addUser() {
         String username = usernameInput.getText().toString().trim();
         String password = passwordInput.getText().toString().trim();
         boolean isAdmin = isAdminSwitch.isChecked();
-                //&& isAdminSwitch.getVisibility() == View.VISIBLE;
 
         if (!username.isEmpty() && !password.isEmpty()) {
             userViewModel.signUpNewUser(username, password, isAdmin);  // Use signUpNewUser method
@@ -77,7 +62,6 @@ public class ManageUsers extends AppCompatActivity {
     private void deleteUser() {
         String username = usernameInput.getText().toString().trim();
         if (!username.isEmpty()) {
-            // This assumes deleteUser is implemented in the UserViewModel
             userViewModel.deleteUser(username);  // This method needs to be added in UserViewModel
             Toast.makeText(this, "User deleted successfully", Toast.LENGTH_SHORT).show();
         } else {
@@ -85,15 +69,12 @@ public class ManageUsers extends AppCompatActivity {
         }
     }
     private void logout() {
-        // Assuming SharedPreferences is used for session management
         SharedPreferences preferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.apply();
 
-        // Navigate back to the LoginActivity
         Intent intent = new Intent(this, LoginActivity.class);
-     //   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }

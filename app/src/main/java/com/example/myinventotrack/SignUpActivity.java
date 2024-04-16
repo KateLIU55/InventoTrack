@@ -46,7 +46,7 @@ public class SignUpActivity extends AppCompatActivity {
         userViewModel.userMessage.observe(this, message -> {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
             if (message.equals("Signup successful, please login.")) {
-                finish(); // Close this activity, return to login
+                finish();
             }
         });
     }
