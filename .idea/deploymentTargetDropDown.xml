@@ -2,6 +2,9 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="ExampleInstrumentedTest">
+        <State />
+      </entry>
       <entry key="app">
         <State>
           <targetSelectedWithDropDown>
@@ -17,6 +20,9 @@
           </targetSelectedWithDropDown>
           <timeTargetWasSelectedWithDropDown value="2024-04-16T18:32:17.110055800Z" />
         </State>
+      </entry>
+      <entry key="testAppContextPackageName()">
+        <State />
       </entry>
     </value>
   </component>

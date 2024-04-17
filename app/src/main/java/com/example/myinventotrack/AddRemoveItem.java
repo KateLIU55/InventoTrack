@@ -14,8 +14,10 @@ import com.example.myinventotrack.database.InventoTrackDatabase;
 
 public class AddRemoveItem extends AppCompatActivity {
 
-    private EditText itemNameEditText, itemQuantityEditText, itemPriceEditText;
-    private InventoTrackDatabase database;
+    EditText itemNameEditText;
+    EditText itemQuantityEditText;
+    EditText itemPriceEditText;
+    InventoTrackDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class AddRemoveItem extends AppCompatActivity {
         addButton.setOnClickListener(v -> addItem());
     }
 
-    private void addItem() {
+    void addItem() {
         // Get user input
         String itemName = itemNameEditText.getText().toString().trim();
         String itemQuantityStr = itemQuantityEditText.getText().toString().trim();

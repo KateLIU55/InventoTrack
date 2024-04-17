@@ -1,6 +1,5 @@
 package com.example.myinventotrack;
 
-import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
@@ -16,8 +15,12 @@ import com.example.myinventotrack.database.SaleDao;
 
 public class NewSales extends AppCompatActivity {
 
-    private EditText titleNewUser;
-    private TextView item1, quantity1, price1, totalPrice;
+    EditText titleNewUser;
+    TextView item1;
+    TextView quantity1;
+    TextView price1;
+    TextView totalPrice;
+    SaleDao saleDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +35,15 @@ public class NewSales extends AppCompatActivity {
         totalPrice = findViewById(R.id.totalPrice);
         Button buttonPayment = findViewById(R.id.buttonPayment);
 
+        // Initialize database
+        InventoTrackDatabase database = InventoTrackDatabase.getDatabase(this);
+        saleDao = InventoTrackDatabase.saleDao();
+
         // Setup onClickListener for payment button
         buttonPayment.setOnClickListener(v -> processPayment());
     }
 
-    // Function to process payment
-    @SuppressLint("StringFormatInvalid")
-    private void processPayment() {
+    void processPayment() {
         // Retrieve input values
         String user = titleNewUser.getText().toString().trim();
         String item = item1.getText().toString().trim();
@@ -52,20 +57,21 @@ public class NewSales extends AppCompatActivity {
         }
 
         // Convert quantity and price to integers or doubles
-        int quantityInt = Integer.parseInt(quantity);
-        double priceDouble = Double.parseDouble(price);
+        int quantityInt;
+        double priceDouble;
+        try {
+            quantityInt = Integer.parseInt(quantity);
+            priceDouble = Double.parseDouble(price);
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Invalid quantity or price format", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Calculate total price
         double total = quantityInt * priceDouble;
 
         // Display total price
         totalPrice.setText(getString(R.string.total, total));
-
-        // Get database instance
-        InventoTrackDatabase database = InventoTrackDatabase.getDatabase(this);
-
-        // Get SaleDao from the database
-        SaleDao saleDao = InventoTrackDatabase.saleDao();
 
         // Create a new Sale object with input data
         Sale sale = new Sale(user, item, quantityInt, priceDouble, total);
@@ -75,6 +81,14 @@ public class NewSales extends AppCompatActivity {
 
         // Toast message showing successful payment
         Toast.makeText(this, "Payment processed for " + total, Toast.LENGTH_SHORT).show();
+    }
+    public String processPayment(String userName, String item, int quantity, double price) {
+        if (userName.isEmpty() || item.isEmpty() || quantity <= 0 || price <= 0) {
+            return "Please fill in all fields";
+        }
+
+        double totalPrice = quantity * price;
+        return String.valueOf(totalPrice);
     }
 
     private static class InsertSaleTask extends AsyncTask<Sale, Void, Void> {

@@ -21,9 +21,9 @@ public interface SaleDao {
     @Delete
     void deleteSale(Sale sale);
 
-    @Query("SELECT * FROM products")
-    List<Product> getAllProducts();
+  //  @Query("SELECT * FROM products")
+   // List<Product> getAllProducts();
 
-    @Query("SELECT * FROM products WHERE id = :productId")
-    Product getProductById(int productId);
+    // @Query("SELECT * FROM products WHERE id = :productId")
+    // Product getProductById(int productId);
 }

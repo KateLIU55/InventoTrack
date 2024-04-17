@@ -1,7 +1,6 @@
 package com.example.myinventotrack.database;
 
 import android.content.Context;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -10,7 +9,6 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.myinventotrack.MainActivity;
 import com.example.myinventotrack.database.Entities.InventoTrack;
 import com.example.myinventotrack.database.Entities.Product;
 import com.example.myinventotrack.database.Entities.User;
@@ -32,9 +30,9 @@ public abstract class InventoTrackDatabase extends RoomDatabase {
     static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     public static InventoTrackDatabase getDatabase(final Context context) {
-        if(INSTANCE == null) {
+        if (INSTANCE == null) {
             synchronized (InventoTrackDatabase.class) {
-                if(INSTANCE == null) {
+                if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     InventoTrackDatabase.class, "inventoTrack_database")
                             .addCallback(new RoomDatabase.Callback() {
@@ -57,13 +55,17 @@ public abstract class InventoTrackDatabase extends RoomDatabase {
     }
 
     public abstract InventoTrackDAO inventoTrackDAO();
+
     public abstract UserDao userDao();
 
     public static ProductDao productDao() {
         return null;
     }
+
     public static com.example.myinventotrack.database.SaleDao saleDao() {
         return null;
     }
 
+    public void insertProduct(Product product) {
+    }
 }
