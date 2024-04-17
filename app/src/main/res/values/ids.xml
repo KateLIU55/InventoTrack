@@ -5,4 +5,5 @@
     <item name="editTextItemName" type="id" />
     <item name="editTextItemQuantity" type="id" />
     <item name="editTextItemPrice" type="id" />
+    <item name="layout_sales_report" type="id" />
 </resources>

@@ -6,10 +6,10 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.myinventotrack.database.Entities.Product;
 import com.example.myinventotrack.database.Entities.Sale;
 
 import java.util.List;
+
 @Dao
 public interface SaleDao {
     @Insert
@@ -21,9 +21,9 @@ public interface SaleDao {
     @Delete
     void deleteSale(Sale sale);
 
-  //  @Query("SELECT * FROM products")
-   // List<Product> getAllProducts();
+    @Query("SELECT * FROM sales")
+    List<Sale> getAllSales();
 
-    // @Query("SELECT * FROM products WHERE id = :productId")
-    // Product getProductById(int productId);
+    @Query("SELECT * FROM sales WHERE id = :saleId")
+    Sale getSaleById(int saleId);
 }

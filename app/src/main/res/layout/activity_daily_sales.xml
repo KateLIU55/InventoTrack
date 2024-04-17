@@ -1,4 +1,3 @@
-
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,17 +12,25 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Title TextView -->
+        <!-- User TextView -->
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Daily Sales Report"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:text="Daily Sales Report"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:text="@string/user"/> <!-- Example value, replace with actual user -->
 
         <!-- TextView to display product name -->
         <TextView
@@ -32,7 +39,7 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textColor="@color/black"
-            android:text="Product Name"/>
+            android:text="@string/product_name"/>
 
         <!-- TextView to display quantity -->
         <TextView
@@ -41,7 +48,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="@color/black"
-            android:text="Quantity:"/> <!-- Example value, replace with actual quantity -->
+            android:text="@string/quantity"/> <!-- Example value, replace with actual quantity -->
 
         <!-- TextView to display price -->
         <TextView
@@ -50,16 +57,16 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="@color/black"
-            android:text="Price:"/> <!-- Example value, replace with actual price -->
+            android:text="@string/total"/> <!-- Example value, replace with actual price -->
 
         <!-- Button to print -->
         <Button
             android:id="@+id/buttonPrint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Print"
+            android:text="@string/print"
             android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>
+

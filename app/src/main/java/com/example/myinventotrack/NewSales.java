@@ -15,12 +15,12 @@ import com.example.myinventotrack.database.SaleDao;
 
 public class NewSales extends AppCompatActivity {
 
-    EditText titleNewUser;
-    TextView item1;
-    TextView quantity1;
-    TextView price1;
-    TextView totalPrice;
-    SaleDao saleDao;
+    private EditText titleNewUser;
+    private EditText item1;
+    private EditText quantity1;
+    private EditText price1;
+    private TextView totalPrice;
+    private SaleDao saleDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class NewSales extends AppCompatActivity {
         buttonPayment.setOnClickListener(v -> processPayment());
     }
 
-    void processPayment() {
+    private void processPayment() {
         // Retrieve input values
         String user = titleNewUser.getText().toString().trim();
         String item = item1.getText().toString().trim();
@@ -81,14 +81,6 @@ public class NewSales extends AppCompatActivity {
 
         // Toast message showing successful payment
         Toast.makeText(this, "Payment processed for " + total, Toast.LENGTH_SHORT).show();
-    }
-    public String processPayment(String userName, String item, int quantity, double price) {
-        if (userName.isEmpty() || item.isEmpty() || quantity <= 0 || price <= 0) {
-            return "Please fill in all fields";
-        }
-
-        double totalPrice = quantity * price;
-        return String.valueOf(totalPrice);
     }
 
     private static class InsertSaleTask extends AsyncTask<Sale, Void, Void> {

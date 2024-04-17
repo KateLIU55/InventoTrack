@@ -68,4 +68,7 @@ public class Sale {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+    public double getTotal() {return totalPrice;
+    }
 }
