@@ -16,6 +16,7 @@ import com.example.myinventotrack.database.UserDao;
 /**
  * Project02: Invento Track Application
  * @date: Since 4/11/2024
+ * @version 1.0
  * @Authors: Kate Liu & Samuel Caesar
  * UserViewModel manages all user-related data interactions between the app's UI and the database.
  * It handles operations such as user login, signup, and deletion, encapsulating all business logic
@@ -73,6 +74,4 @@ public class UserViewModel extends AndroidViewModel {
             userMessage.postValue("User deleted successfully.");
         }).start();
     }
-
-
 }

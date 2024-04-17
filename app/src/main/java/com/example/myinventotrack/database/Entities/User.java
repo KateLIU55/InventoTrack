@@ -3,6 +3,16 @@ package com.example.myinventotrack.database.Entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ * Project02: Invento Track Application
+ * @date: Since 4/11/2024
+ * @version 1.0
+ * @Authors: Kate Liu & Samuel Caesar
+ * Entity representing a User in the InventoTrack application.
+ * This class defines the User's schema for the Room database, including fields for ID,
+ * username, password, and admin status.
+ */
+
 @Entity(tableName = "Users")
 public class User {
     @PrimaryKey(autoGenerate = true)
