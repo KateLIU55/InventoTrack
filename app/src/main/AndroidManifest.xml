@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MyInventoTrack"
         tools:targetApi="31">
         <activity
+            android:name=".UserListActivity"
+            android:exported="false" />
+        <activity
             android:name=".NewSales"
             android:exported="false" />
         <activity

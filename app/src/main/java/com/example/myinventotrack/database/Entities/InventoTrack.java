@@ -11,6 +11,15 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**
+ * Project02: Invento Track Application
+ * @date: Since 4/11/2024
+ * @version 1.0
+ * @Authors: Kate Liu & Samuel Caesar
+ * This is the entity class for InventoTrack. It models the attributes and behaviors of
+ * inventory tracking entries within the application, specifically handling operations
+ * related to inventory items such as maintaining user data and timestamp of inventory checks.
+ */
 @Entity(tableName = InventoTrackDatabase.INVENTO_TRACK_TABLE)
 public class InventoTrack {
     @PrimaryKey(autoGenerate = true)
@@ -25,11 +34,7 @@ public class InventoTrack {
     public InventoTrack(String username, LocalDateTime dateTime) {
         this.username = username;
         this.dateTime = dateTime;
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            dateTime = LocalDateTime.now();
-//        }
     }
-
 
     @Override
     public boolean equals(Object o) {
