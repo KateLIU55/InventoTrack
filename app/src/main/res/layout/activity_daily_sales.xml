@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp"
-            android:text="Daily Sales Report"
+            android:text="@string/daily_sales_report1"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />

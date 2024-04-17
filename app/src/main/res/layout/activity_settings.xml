@@ -24,13 +24,14 @@
         android:id="@+id/switchDarkMode"
         android:layout_width="305dp"
         android:layout_height="55dp"
-        android:text="Dark Mode"
+        android:text="@string/dark_mode"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
-        tools:layout_editor_absoluteX="30dp" />
+        tools:layout_editor_absoluteX="30dp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <Switch
         android:id="@+id/switchSmallText"
@@ -41,7 +42,8 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/switchDarkMode" />
+        app:layout_constraintTop_toBottomOf="@id/switchDarkMode"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <Switch
         android:id="@+id/switchLargeText"
@@ -52,7 +54,8 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/switchSmallText" />
+        app:layout_constraintTop_toBottomOf="@id/switchSmallText"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <Button
         android:id="@+id/buttonSave"

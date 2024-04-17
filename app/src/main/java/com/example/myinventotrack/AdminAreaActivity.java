@@ -3,7 +3,6 @@ package com.example.myinventotrack;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -57,7 +56,10 @@ public class AdminAreaActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void openSettings() {
-        Intent intent = new Intent ( AdminAreaActivity.this, Settings.class);
+        // Create an Intent to open the Settings activity
+        Intent intent = new Intent(AdminAreaActivity.this, Settings.class);
+
+        // Start the Settings activity
         startActivity(intent);
     }
 

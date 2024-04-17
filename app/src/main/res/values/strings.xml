@@ -37,4 +37,6 @@
     <string name="user">User:</string>
     <string name="product_name">Product Name</string>
     <string name="print">Print</string>
+    <string name="daily_sales_report1">Daily Sales Report</string>
+    <string name="dark_mode">Dark Mode</string>
 </resources>

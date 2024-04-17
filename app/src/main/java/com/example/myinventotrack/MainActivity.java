@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+
 import com.example.myinventotrack.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonTodaysSales.setOnClickListener(v -> todaysSales());
         binding.buttonReturns.setOnClickListener(v -> returns());
 
-        if(isAdmin) {
+        if (isAdmin) {
             binding.buttonAdminArea.setVisibility(View.VISIBLE);
         } else {
             binding.buttonAdminArea.setVisibility(View.INVISIBLE);
@@ -55,14 +55,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void returns() {
-        Toast.makeText(this, "Returns", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, Returns.class);
+        startActivity(intent);
     }
 
     private void todaysSales() {
-        Toast.makeText(this, "Today's Sales", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, DailySales.class);
+        startActivity(intent);
     }
 
     private void newSale() {
-        Toast.makeText(this, "New Sale", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, NewSales.class);
+        startActivity(intent);
     }
 }
