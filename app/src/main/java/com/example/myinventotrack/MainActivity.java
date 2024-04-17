@@ -13,6 +13,7 @@ import com.example.myinventotrack.databinding.ActivityMainBinding;
 /**
  * Project02: Invento Track Application
  * @date: Since 4/11/2024
+ * @version 1.0
  * @Authors: Kate Liu & Samuel Caesar
  * MainActivity serves as the entry point after user login, managing navigation and user based on different roles.
  * It handles user interactions for various functionalities like user management and user logout.

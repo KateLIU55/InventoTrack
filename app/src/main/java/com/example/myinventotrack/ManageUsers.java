@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 /**
  * Project02: Invento Track Application
  * @date: Since 4/11/2024
+ * @version 1.0
  * @Authors: Kate Liu & Samuel Caesar
  * ManageUsers is responsible for administering user accounts within the app.
  * It provides functionality for adding new users and deleting existing users.
