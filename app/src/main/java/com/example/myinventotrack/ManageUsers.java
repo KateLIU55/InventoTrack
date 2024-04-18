@@ -3,6 +3,7 @@ package com.example.myinventotrack;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,16 +25,17 @@ import androidx.lifecycle.ViewModelProvider;
  */
 
 public class ManageUsers extends AppCompatActivity {
-    private EditText usernameInput;
-    private EditText passwordInput;
-    private Switch isAdminSwitch;
+    public EditText usernameInput;
+    public EditText passwordInput;
+    public Switch isAdminSwitch;
     private Button signUpButton;
-    private Button deleteUserButton;
-    private UserViewModel userViewModel;  // Declare UserViewModel
+    public Button deleteUserButton;
+    public UserViewModel userViewModel;  // Declare UserViewModel
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("AdminAreaActivity", "Intent Extras: " + getIntent().getExtras());
         setContentView(R.layout.activity_manage_users);
 
         usernameInput = findViewById(R.id.newAccountInputEditText);
@@ -57,7 +59,7 @@ public class ManageUsers extends AppCompatActivity {
         deleteUserButton.setOnClickListener(v -> deleteUser());
     }
 
-    private void addUser() {
+    public void addUser() {
         String username = usernameInput.getText().toString().trim();
         String password = passwordInput.getText().toString().trim();
         boolean isAdmin = isAdminSwitch.isChecked();
@@ -70,7 +72,7 @@ public class ManageUsers extends AppCompatActivity {
         }
     }
 
-    private void deleteUser() {
+    public void deleteUser() {
         String username = usernameInput.getText().toString().trim();
         if (!username.isEmpty()) {
             userViewModel.deleteUser(username);  // This method needs to be added in UserViewModel

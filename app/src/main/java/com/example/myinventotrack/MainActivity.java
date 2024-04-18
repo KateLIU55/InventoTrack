@@ -76,15 +76,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    private void adjustUIForAdmin() {
+    public void adjustUIForAdmin() {
         binding.buttonAdminArea.setVisibility(View.VISIBLE);
     }
 
-    private void adjustUIForRegularUser() {
+    public void adjustUIForRegularUser() {
         binding.buttonAdminArea.setVisibility(View.INVISIBLE);
     }
 
-    private void navigateToLoginActivity() {
+    public void navigateToLoginActivity() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();

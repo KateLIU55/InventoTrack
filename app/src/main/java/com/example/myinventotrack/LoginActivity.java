@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void setUpObserver() {
+    public void setUpObserver() {
         userViewModel.userMessage.observe(this, message -> {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
             if (message.contains("Login successful")) {
@@ -61,8 +61,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
-    private void performLogin() {
+//for unit test to access the method, changed the visibility from private to public
+    public void performLogin() {
         String username = binding.editTextUsername.getText().toString().trim();
         String password = binding.editTextPassword.getText().toString().trim();
         userViewModel.getUserByUsername(username).observe(this, user -> {
@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         });
         userViewModel.loginUser(username, password);
     }
-    private void saveUserSession(User user, String username) {
+    public void saveUserSession(User user, String username) {
         SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("isLoggedIn", true);
@@ -83,19 +83,20 @@ public class LoginActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    private void navigateToMainActivity() {
+//for unit test to access the method, changed the visibility from private to public
+    public void navigateToMainActivity() {
         Log.d("LoginActivity", "Navigating to MainActivity");
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
 
-    private void navigateToSignUpActivity() {
+    public void navigateToSignUpActivity() {
         Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
         startActivity(intent);
     }
 
-    private void hideKeyboard(View view) {
+    public void hideKeyboard(View view) {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm != null && view != null) {
             imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
