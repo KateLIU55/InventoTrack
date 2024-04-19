@@ -28,6 +28,7 @@ public class MainActivityTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("com.example.myinventotrack", appContext.getPackageName());
     }
+
     public void testIntentToLoginActivity() {
         activityRule.getScenario().onActivity(activity -> {
             Intent expectedIntent = new Intent(activity, LoginActivity.class);
